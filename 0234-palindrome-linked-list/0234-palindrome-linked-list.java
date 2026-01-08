@@ -10,22 +10,22 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        String res="";
+        String temp="";
+
         while(head!=null)
         {
-            res+=head.val;
+            temp+=head.val;
             head=head.next;
         }
 
-         String temp = new StringBuilder(res).reverse().toString();
-
-
-         if(res.equals(temp))
-         {
+        StringBuilder s=new StringBuilder(temp);
+        s.reverse();
+        if(temp.equals(s.toString()))
             return true;
-         }
+        
+        return false;
 
-         return false;
 
+        
     }
 }
