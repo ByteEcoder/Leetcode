@@ -1,23 +1,17 @@
 class Solution {
     public int tribonacci(int n) {
-            
-            int[] res=new int[n+1];
-            Arrays.fill(res,-1);
-            return check(n,res);
+            return check(n);
     }
-    public int check(int i,int[] res){
+    public int check(int i){
         if (i==0)
-            return res[i]=0;
-        if (i<=2)
-            return res[i]=1;
-        if (res[i]!=-1) 
-            return res[i];
+            return 0;
+        if(i<=2)
+            return 1;
 
-        int a=check(i-1,res);
-        int b=check(i-2,res);
-        int c=check(i-3,res);
+        int a=check(i-1);
+        int b=check(i-2);
+        int c=check(i-3);
 
-        return res[i]=a+b+c;
+        return a+b+c;
     }
-    
 }
