@@ -1,6 +1,5 @@
 class NumArray {
     int[] nums;
-    int sum;
     public NumArray(int[] nums) {
        this.nums=nums;
     }
