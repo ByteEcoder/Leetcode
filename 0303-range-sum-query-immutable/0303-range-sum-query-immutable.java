@@ -1,17 +1,18 @@
 class NumArray {
-    int[] nums;
-    public NumArray(int[] nums) {
-       this.nums=nums;
-    }
-    
-    public int sumRange(int left, int right) {
-        if(left>right)
-            return 0;
-       
+    int[] prefix;
 
-        return nums[left]+sumRange(left+1,right);
+    public NumArray(int[] nums) {
+        prefix = new int[nums.length + 1];
+        for (int i = 0; i < nums.length; i++) {
+            prefix[i + 1] = prefix[i] + nums[i];
+        }
+    }
+
+    public int sumRange(int left, int right) {
+        return prefix[right + 1] - prefix[left];
     }
 }
+
 
 /**
  * Your NumArray object will be instantiated and called as such:
