@@ -8,8 +8,8 @@ class Solution {
             int last=bookings[i][1];
             int seat=bookings[i][2];
 
-            res[first-1]+=bookings[i][2];
-            while(last>first)
+            
+            while(last>=first)
                 {res[last-1]+=bookings[i][2];
                 last--;
                 }
