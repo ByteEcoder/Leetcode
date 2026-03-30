@@ -19,19 +19,21 @@ class Solution {
         if(dp[i][state][tr]!=Integer.MIN_VALUE)
             return dp[i][state][tr];
 
-        int pick=0;
-        int nt=0;
+        int buy=0;
+        int sell=0;
         if(state==0)
         {
-            pick=-prices[i]+help(i+1,1,tr,dp,prices);
-            nt=help(i+1,0,tr,dp,prices);
+            int a=-prices[i]+help(i+1,1,tr,dp,prices);
+            int b=help(i+1,0,tr,dp,prices);
+            buy=Math.max(a,b);
         }
         if(state!=0)
         {
-            pick=prices[i]+help(i+1,0,tr+1,dp,prices);
-            nt=help(i+1,1,tr,dp,prices);
+            int a=prices[i]+help(i+1,0,tr+1,dp,prices);
+            int b=help(i+1,1,tr,dp,prices);
+            sell=Math.max(a,b);
         }
 
-        return dp[i][state][tr]=Math.max(pick,nt);
+        return dp[i][state][tr]=Math.max(buy,sell);
     }
 }
