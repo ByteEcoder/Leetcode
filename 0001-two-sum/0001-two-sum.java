@@ -1,19 +1,21 @@
 class Solution {
-    public int[] twoSum(int[] num, int target) {
-        if (num.length >= 2) 
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map=new HashMap<>();
+
+        for(int i=0;i<nums.length;i++)
         {
-            for (int i=0;i<num.length;i++)
-            {
-                for(int j=i+1;j<num.length;j++)
-                {
-                    if (num[i]+num[j]==target)
-                    {
-                        return new int[]{i,j};
-                    }
-                }
-            }
-            
+            map.put(nums[i],i);
         }
-        return new int[]{}; // Return an empty array if no solution is found
+
+        for(int i=0;i<nums.length;i++)
+        {
+            int temp=target-nums[i];
+            if(map.containsKey(temp) && i!=map.get(temp))
+            {
+                return new int[]{i,map.get(temp)};
+            }
+
+        }
+        return new int[]{};
     }
 }
