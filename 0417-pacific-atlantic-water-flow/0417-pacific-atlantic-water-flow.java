@@ -34,9 +34,9 @@ class Solution {
 
         if (i < 0 || j < 0 || i > n - 1 || j > m - 1)
             return;
-        if (visit[i][j] != null && visit[i][j].contains(ocean))
+        if (visit[i][j].contains(ocean))
             return;
-        if (visit[i][j] != null && visit[i][j].length() > 1)
+        if (visit[i][j].length() > 1)
             return;
         visit[i][j] += ocean;
 
