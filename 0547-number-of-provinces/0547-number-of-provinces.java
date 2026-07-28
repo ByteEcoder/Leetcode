@@ -25,16 +25,16 @@ class Solution {
         {
             if(!visit[i])
             {
-                count=bfs(visit,graph,count,i);
+                bfs(visit,graph,i);
+                count++;
             }
         }
         return count;
         
     }
 
-    public int bfs(boolean visit[],List<List<Integer>> graph,int count,int start)
+    public void bfs(boolean visit[],List<List<Integer>> graph,int start)
     {
-        count++;
         Queue<Integer> q=new LinkedList<>();
         q.add(start);
         visit[start] = true;
@@ -51,6 +51,6 @@ class Solution {
                 }
             }
         }
-        return count;
+        
     }
 }
