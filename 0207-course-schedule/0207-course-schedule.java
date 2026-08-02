@@ -12,7 +12,7 @@ class Solution {
             graph.get(e[1]).add(e[0]);
             degree[e[0]]++;
         }
-        Queue<Integer> q=new LinkedList<>();
+        Queue<Integer> q=new ArrayDeque<>();
         for(int i=0;i<numCourses;i++)
         {
             if(degree[i]==0)
@@ -31,11 +31,8 @@ class Solution {
                     q.add(neigh);
             }
         }
-
-        if(count==numCourses)
-        return true;
         
-        return false;
+        return count==numCourses;
     }
 
 
